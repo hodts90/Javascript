@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+// Task 1
+       /*  let a = +prompt("Enter number a:");
+        let b = +prompt("Enter number b:");
+        alert(a + b); */
+
+//Task 2
+        /* function readNumber() { */
+        /*     let value; */
+        /*     do { */
+        /*         value = prompt("Enter number", 0) */;
+        /*     } while (!isFinite(value)) */
+        /*     if (value === null || value === '') */
+        /*         return null; */
+
+        /*     return Number(value); */
+        /* } */
+
+        /* alert(`Number: ${readNumber()}`); */
+        //Task 3
+        /* let i = 0;
+        while (i != 10) {
+            i += 0.2;
+            alert(i);
+        } */
+
+        //Task 4
+        /*  function random(min, max) {
+
+            let result = min + Math.random() * (max - min);
+            return result;
+        }
+
+        alert(random(1, 10));
+        alert(random(1, 10));
+        alert(random(1, 10));
+        alert(random(1, 10));
+        alert(random(1, 10));
+        alert(random(1, 10));
+        alert(random(1, 10)); */
+
+        // Task 5
+
+        function randomInteger(min, max) {
+
+            let result = min + Math.random() * ((max + 1) - min);
+            return Math.floor(result);
+        }
+
+        alert(randomInteger(1, 5));
+        alert(randomInteger(1, 5));
+        alert(randomInteger(1, 5));
+        alert(randomInteger(1, 5));
+        alert(randomInteger(1, 5));
+        alert(randomInteger(1, 10));
+        alert(randomInteger(1, 10));
+        alert(randomInteger(1, 10));
+        alert(randomInteger(1, 10));
+        alert(randomInteger(1, 10));
+        alert(randomInteger(1, 10));
+        alert(randomInteger(1, 10));
+    </script>
+</body>
+
+</html>
