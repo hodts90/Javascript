@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Task 1
+        function ucFirst(str) {
+            if (str === "" || str === " ") {
+                alert("No data in str");
+                return str;
+            }
+            let value = str.trim();
+            let firstLetter = value.at(0);
+            let upLetter = firstLetter.toUpperCase();
+            return upLetter + value.slice(1, value.lenght);
+        }
+        /* alert(ucFirst("q2222222erty"));
+        alert(ucFirst("      w33333333erty "));
+        alert(ucFirst("qwerty"));
+        alert(ucFirst(""));
+        alert(ucFirst("qwerty") === "Qwerty"); */
+
+        //Task2
+
+        function checkSpam(str) {
+
+            let fpar = 'viagra';
+            let spar = 'xxx';
+            let newstr = str.toLowerCase();
+
+            /* if (newstr.indexOf(fpar) != -1 || newstr.indexOf(spar) != -1) {
+                return true;
+            } else {
+                return false;
+            } */
+
+            return newstr.includes(fpar) || newstr.includes(spar);
+        }
+        /*  alert(checkSpam('buy VIagra now'));
+         alert(checkSpam('buy xXX now')); */
+
+        //Task3
+
+        function truncate(str, maxlength) {
+
+
+            if (str.length > maxlength) {
+                return str.slice(0, maxlength - 1) + '…';
+            } else {
+                return str;
+            }
+        }
+        /*  alert(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
+          alert(truncate("Всем привет!", 20)); */
+
+        //Task4 
+        function extractCurrencyValue(str) {
+
+            return Number(str.slice(1));
+        }
+        /* alert(extractCurrencyValue('$120') === 120);
+        alert(extractCurrencyValue("$1200")); */
+
+
+    </script>
+</body>
+
+</html>
