@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Task1 
+        function camelize(str) {
+
+            let newstr = str.split('-');
+            let newstr2 = newstr.map((value, index) => index == 0 ? value : value[0].toUpperCase() + value.slice(1));
+            str = newstr2.join('');
+            return str;
+
+        }
+
+        /*  alert(camelize("background-color"));
+         alert(camelize("list-style-image"));
+         alert(camelize("-webkit-transition"));
+  */
+        //Task2
+
+        function filterRange(arr, a, b) {
+
+            return arr.filter(item => (a <= item && item <= b));
+        }
+        let arr = [5, 3, 8, 1];
+
+        let filtered = filterRange(arr, 1, 4);
+
+        /* alert(filtered); // 3,1
+
+        alert(arr); // 5,3,8,1  */
+
+        //Task 3
+
+        function filterRangeInPlace(arr, a, b) {
+
+            for (let i = 0; i < arr.length; i++) {
+                let val = arr[i];
+
+                if (val < a || val > b) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+
+        }
+
+        // let arr = [5, 3, 8, 1];
+
+        filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+        // alert(arr); // [3, 1]
+
+        //Task 4
+
+        let arr1 = [5, 2, 1, -10, 8];
+
+        arr1.sort((a, b) => b - a);
+
+        // alert(arr1);
+        //Task 5
+
+        function copySorted(arr) {
+
+            let array = arr.slice();
+            return array.sort();
+        }
+
+        let arr2 = ["HTML", "JavaScript", "CSS"];
+
+        let sorted = copySorted(arr2);
+
+        //alert(sorted); // CSS, HTML, JavaScript
+        //alert(arr2); // HTML, JavaScript, CSS (без изменений)
+
+        //Task 6
+
+        function Calculator() {
+            this.methods = {
+
+                "+": (a, b) => a + b,
+                "-": (a, b) => a - b,
+            };
+
+            this.calculate = function (str) {
+
+                let newStr = str.split(' ');
+                let a = +newStr[0];
+                let oper = newStr[1];
+                let b = +newStr[2];
+
+                if (!this.methods[oper] || isNaN(a) || isNaN(b)) {
+                    return NaN;
+                }
+
+
+                return this.methods[oper](a, b);
+
+            }
+            this.addMethod = function (name, func) {
+
+                if (!this.methods[name]) {
+                    this.methods[name] = func;
+                } else {
+                    alert(`This method yerly created! ${name} `);
+                }
+
+            }
+
+        }
+
+        //let calc = new Calculator;
+
+        //alert(calc.calculate("18 + 200"));
+        /* let powerCalc = new Calculator;
+        powerCalc.addMethod("*", (a, b) => a * b);
+        powerCalc.addMethod("/", (a, b) => a / b);
+        powerCalc.addMethod("**", (a, b) => a ** b);
+        //powerCalc.addMethod(" ", (a, b) => a ** b);
+        powerCalc.addMethod("+", (a, b) => a + b);
+        // powerCalc.addMethod(null, (a, b) => a ** b);
+        let result = powerCalc.calculate("2 ** 3");
+        alert(result); // 8
+        alert(powerCalc.calculate("89 * 36")); */
+        //Task 7
+
+        /*  let vasya = { name: "Вася", age: 25 };
+         let petya = { name: "Петя", age: 30 };
+         let masha = { name: "Маша", age: 28 };
+
+         let users = [vasya, petya, masha];
+
+         //let names = users.find(item => item.name); no work
+         let names = users.map(item => item.name);
+
+
+         alert(names); // Вася, Петя, Маша */
+
+        //Task 8
+
+        /* let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+        let petya = { name: "Петя", surname: "Иванов", id: 2 };
+        let masha = { name: "Маша", surname: "Петрова", id: 3 };
+
+        let users = [vasya, petya, masha];
+
+        let usersMapped = users.map(user => ({
+            fullName: `${user.name} ${user.surname}`,
+            id: user.id
+        }));
+
+        /*
+        usersMapped = [
+          { fullName: "Вася Пупкин", id: 1 },
+          { fullName: "Петя Иванов", id: 2 },
+          { fullName: "Маша Петрова", id: 3 }
+        ]
+        */
+
+        /*  alert(usersMapped[0].id);
+         alert(usersMapped[0].fullName); */
+
+        //Task 9
+
+        /* function sortByAge(array) {
+            array.sort((a, b) => a.age > b.age ? 1 : -1);
+        }
+        let vasya = { name: "Вася", age: 25 };
+        let petya = { name: "Петя", age: 30 };
+        let masha = { name: "Маша", age: 28 };
+
+        let arrr = [vasya, petya, masha];
+
+        sortByAge(arrr);
+
+        // теперь: [vasya, masha, petya]
+        alert(arrr[0].name); // Вася
+        alert(arrr[1].name); // Маша
+        alert(arrr[2].name); // Петя
+ */
+
+        //Task 10
+        /*  function shuffle(array) {
+             for (let i = array.length - 1; i > 0; i--) {
+                 let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+                 [array[i], array[j]] = [array[j], array[i]];
+             }
+
+             return array;
+         }
+         let ar1 = [1, 2, 3];
+
+         alert(shuffle(ar1));
+         alert(shuffle(ar1));
+         alert(shuffle(ar1)); */
+
+        //Task 11
+
+        /* function getAverageAge(mas) {
+            return mas.reduce((prev, user) => prev + user.age, 0) / mas.length;
+        }
+        let vasya = { name: "Вася", age: 25 };
+        let petya = { name: "Петя", age: 30 };
+        let masha = { name: "Маша", age: 29 };
+
+        let ar = [vasya, petya, masha];
+
+        alert(getAverageAge(ar));
+ */
+        // Task 12
+
+        function unique(arr) {
+            let result = [];
+
+            for (let str of arr) {
+                if (!result.includes(str)) {
+                    result.push(str);
+                }
+            }
+
+            return result;
+        }
+
+        let strings = ["кришна", "кришна", "харе", "харе",
+            "харе", "харе", "кришна", "кришна", ":-O"
+        ];
+
+        alert(unique(strings)); // кришна, харе, :-O
+
+        //Task 13
+
+        function groupById(array) {
+            return array.reduce((obj, value) => {
+                obj[value.id] = value;
+                return obj;
+            }, {})
+        }
+        let users = [
+            { id: 'john', name: "John Smith", age: 20 },
+            { id: 'ann', name: "Ann Smith", age: 24 },
+            { id: 'pete', name: "Pete Peterson", age: 31 },
+        ];
+
+        let usersById = groupById(users);
+        console.log(usersById);
+
+    </script>
+</body>
+
+</html>
