@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* function unique(arr) {
+            return Array.from(new Set(arr));
+        }
+
+        let values = ["Hare", "Krishna", "Hare", "Krishna",
+            "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        ];
+
+        alert(unique(values)); */
+
+
+
+        function aclean(arr) {
+            let map = new Map();
+
+            for (let word of arr) {
+
+                let sorted = word.toLowerCase().split("").sort().join("");
+                map.set(sorted, word);
+            }
+
+            return Array.from(map.values());
+        }
+
+        let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+        alert(aclean(arr));
+
+        //Task 
+        let map = new Map();
+
+        map.set("name", "John");
+
+        let keys = Array.from(map.keys());//using Array.from() for converter obj MAP in ARRAY, push dont use for iteration objects
+
+        keys.push("more");
+
+        alert(keys);
+    </script>
+</body>
+
+</html>
